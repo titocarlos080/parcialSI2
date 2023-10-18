@@ -6,7 +6,7 @@
         <ul class="metismenu" id="side-menu">
 
             <li>
-                <a href="#">
+                <a href="{{route('home')}}">
                     <i class="fas fa-home"></i>
                     <span> Inicio </span>
                 </a>

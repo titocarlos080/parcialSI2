@@ -28,7 +28,7 @@ Route::middleware(['auth', 'auth.admin'])->group(
         Route::get('/dashboard', [DashboardController::class, 'home'])->name('home');
         Route::get('/dashboard/gestionar_productos', [DashboardController::class, 'productos'])->name('gestionar_productos');
         Route::get('/dashboard/gestionar_pedidos', [DashboardController::class, 'pedidos'])->name('gestionar_pedidos');
-        Route::get('/dashboard/gestionar_sucursales', [DashboardController::class, 'sucursales'])->name('gestionar_sucursales');
+        Route::get('/dashboard/gestionar_sucursales', [DashboardController::class, 'ciudades'])->name('gestionar_sucursales');
         Route::get('/dashboard/gestionar_empleados', [DashboardController::class, 'empleados'])->name('gestionar_empleados');
         Route::get('/dashboard/gestionar_reportes', [DashboardController::class, 'reportes'])->name('gestionar_reportes');
         Route::get('/dashboard/gestionar_notasventa', [DashboardController::class, 'notaventa'])->name('gestionar_notaventa');

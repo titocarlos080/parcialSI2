@@ -159,7 +159,7 @@
                                              @csrf
                                              <div class="form-group mb-3">
                                               
-                                             <img src="/assets/images/imegenqr.jpg" width="50%" height="50%" alt="img" >
+                                             <img src="/assets/images/imegenqr.jpg" width="100%" height="100%" alt="img" >
         
                                             </div>
                                              <input style="display: none;" name="id_metodo" type="number" id="id_metodo_qr">

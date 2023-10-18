@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card-box">
-                                @livewire('sucursales.show')
+                                @livewire('empleado.show')
                             </div>
                         </div>
                     </div>

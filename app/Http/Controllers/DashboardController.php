@@ -21,6 +21,17 @@ class DashboardController extends Controller
     public function ciudades()
     {
         return view("dashboard.ciudades");// aqui adentro mas sucursales
-    }
+    }   public function empleados()
+    {
+        return view("dashboard.empleados");// aqui adentro mas sucursales
+    } public function reportes()
+    {
+        return view("dashboard.informes");// aqui adentro mas sucursales
+    } 
+      public function notaventa ()
+    {
+        return view("dashboard.historial_pedido");// aqui adentro mas sucursales
+    } 
+     
     
 }
