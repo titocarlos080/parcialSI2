@@ -20,7 +20,7 @@
 
          <div class="d-flex justify-content-between">
              <div>
-                 <a href="/productos/cliente" class="cursor-pointer dropdown-item btn btn-primary"> Seguir comprando</a>
+                 <a href="/productos/cliente" class="cursor-pointer  btn btn-primary"><i class="fa-arrow-left"></i> Seguir comprando</a>
 
              </div>
              <div class="ml-auto">
@@ -271,8 +271,12 @@
                                      @if(session('pedido'))
                                      <div class="alert alert-success">
                                          {{ session('pedido') }}
+                                         
                                          <a href="/reportes/pago/{{ session('pedido_id') }}">Descargar PDF</a>
-                                     </div>
+                                          <script>
+                                            localStorage.removeItem('carrito')
+                                          </script>
+                                        </div>
                                      @endif
 
                                      @if(session('nopedido'))
