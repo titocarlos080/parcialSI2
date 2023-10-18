@@ -157,6 +157,11 @@
                                      <div id="formulario_QRtransferencia">
                                          <form action="#" method="post">
                                              @csrf
+                                             <div class="form-group mb-3">
+                                              
+                                             <img src="/assets/images/imegenqr.jpg" width="50%" height="50%" alt="img" >
+        
+                                            </div>
                                              <input style="display: none;" name="id_metodo" type="number" id="id_metodo_qr">
                                              <button class="btn btn-success" type="submit">Pagar Qr</button>
                                          </form>
