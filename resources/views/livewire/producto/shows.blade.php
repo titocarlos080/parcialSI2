@@ -53,7 +53,7 @@
                                             <td> {{$producto->talla->nombre}}</td>
                                             <td> {{$producto->sucursal->nombre}}</td>
                                             <td> <button class="btn btn-primary">Editar</button>
-                                                <button class="btn btn-danger">Eliminar</button>
+                                                <button wire:click="eliminar({{$producto->id}})" class="btn btn-danger">Eliminar</button>
                                             </td>
 
                                     </tr>

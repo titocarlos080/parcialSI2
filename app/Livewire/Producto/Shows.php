@@ -9,25 +9,31 @@ use Livewire\Component;
 
 class Shows extends Component
 {
- 
+
     public $productos;
-    public $crearProducto=false;
-    public $editarProducto=false;
+    public $crearProducto = false;
+    public $editarProducto = false;
     public $categorias;
     public $tallas;
 
 
     public function nuevoProducto()
     {
-        $this->crearProducto=true;
+        $this->crearProducto = true;
     }
-      public function render()
+    public function eliminar($id)
     {
-       $this->productos=Producto::all();
-       $this->categorias=Categoria::all();
-       $this->tallas=Talla::all();
+        Producto::destroy($id);
+    }
+
+
+
+    public function render()
+    {
+        $this->productos = Producto::all();
+        $this->categorias = Categoria::all();
+        $this->tallas = Talla::all();
 
         return view('livewire.producto.shows');
-    }    
-    
+    }
 }

@@ -96,8 +96,8 @@
 
                                 @auth
                                 <a href="/mis_pedidos/{{$user->id}}" class="cursor-pointer dropdown-item">
-                                    <i class="fa fa-history"></i> 
-                                         <span> Mis Pedidos</span>
+                                    <i class="fa fa-history"></i>
+                                    <span> Mis Pedidos</span>
                                 </a>
                                 @endauth
 
@@ -187,12 +187,16 @@
             @foreach ($productos_mostrar as $producto)
             <div class="col-lg-6 col-xl-3">
                 <div class="card ">
-                    <h5 class="card-title text-center text-bold py-1">{{$producto->nombre}}</h5>
+                    <h3 class="card-title text-center text-bold py-1">{{$producto->nombre}}</h3>
                     <div class="card-body">
                         <img class="img-fluid" src="{{$producto->imagen}}" alt="Card image cap">
-                        <h2 class="text-center">Talla: <span>{{$producto->talla->nombre}}</h2>
-                        <h2 class="text-center">{{$producto->categoria->nombre}}</h2>
-                        <p class="card-text">{{$producto->descripcion}}</p>
+                        <h3 class="text-center">Talla: <span>{{$producto->talla->nombre}}</h3>
+                     
+                            <h4 class="text-center">Precio:{{$producto->precio}}</h4>
+                            <p class="text-center">{{$producto->descripcion}}, Stock:{{$producto->stock}} </p>
+                             
+                     
+
                     </div>
                     <div class="card-footer center text-center">
                         <button onclick="agregarAlCarrito('{{$producto}}')" class="card-link btn btn-success"><i class=" fa fa-shopping-cart"></i></button>
@@ -372,10 +376,10 @@
                     var con = document.getElementById("aqi").appendChild(contenedorVideo);
                     console.log(stream);
 
-                 })
-                 .catch((error) => {
-                     console.log('error al abrir camara');
-                 })
+                })
+                .catch((error) => {
+                    console.log('error al abrir camara');
+                })
 
         }
 
