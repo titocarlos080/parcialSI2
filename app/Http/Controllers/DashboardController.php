@@ -14,7 +14,7 @@ class DashboardController extends Controller
     {
         return view("dashboard.productos"); // aqui adentro tallas y categorias +++ = INVENTARIO
     }
-    public function pedidos()
+    public function pedidos() 
     {
         return view("dashboard.pedidos");
     }

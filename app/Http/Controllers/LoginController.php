@@ -22,17 +22,12 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function categorias()
-    {
-
-        return dd("dashboard.categoria");
-    }
+  
 
 
     public function authenticate(Request $request): RedirectResponse
     {
 
-        $credencial = $request->validate(['email' => ['required', 'email'], 'password' => ['required']]);
 
         $credenciales = $request->validate([
             'email' => ['required', 'email'],
@@ -42,7 +37,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             $usuario = Auth::user();
             $rol=$usuario->rol->nombre;
-            if ($rol==='Administrador' || $rol==='Empleado') {
+            if (  $rol==='Empleado' || $rol==='Administrador') {
                 return redirect()->route('home');
             }
             return redirect('/');

@@ -22,9 +22,10 @@ class RegistroController extends Controller
         $usuario->foto=$request->foto || '';
         $usuario->telefono=$request->telefono || '';
         $usuario->password=$request->password;
-        $usuario->id_rol=2;
+        $usuario->id_rol=3;
         $usuario->save(); 
         return redirect()->route('login');
+        
  
     }
 }

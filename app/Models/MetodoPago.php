@@ -6,20 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Estado extends Model
+class MetodoPago extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = 'estado';
+    protected $table = 'metodo_pago';
     protected $fillable = ['id', 'nombre'];
-    public function pedido(): HasMany {
-        return $this->hasMany(Pedido::class, 'id_estado');
+    public function pagos(): HasMany {
+        return $this->hasMany(Pago::class, 'id_metodo');
     }
 
 }
-/*
-CREATE TABLE estado(
-	id serial PRIMARY KEY,
-	nombre varchar(60) NOT NULL
-);
- */

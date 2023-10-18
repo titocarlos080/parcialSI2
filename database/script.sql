@@ -1,3 +1,5 @@
+CREATE database parcial1;
+-- CREAR TABLA-----
 CREATE TABLE ciudad(
 	id serial PRIMARY KEY,
 	nombre varchar(60) NOT NULL
@@ -103,6 +105,7 @@ CREATE TABLE detalle_pedido(
 	id_pedido int NOT NULL,
 	cantidad int NOT NULL,
 	precio real CHECK(precio>=0),
+	precio_parcial real CHECK(precio>=0),
 	PRIMARY KEY ( id_producto,id_pedido),
  	FOREIGN KEY (id_producto) REFERENCES producto(id) ,
  	FOREIGN KEY (id_pedido) REFERENCES pedido(id)  
@@ -136,49 +139,60 @@ INSERT into talla (nombre) values('XL');
 INSERT into rol (nombre) values('Administrador');
 INSERT into rol (nombre) values('Empleado');
 INSERT into rol (nombre) values('Cliente');
-
-
-
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('Polera rojo','/','es una polera rojo',1,1);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('Polera amarila','/','es una polera amarilla',1,2);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('Polera rosado','/','es una polera rosado',1,3);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('Polera negro','/','es una polera negro',1,4);
-
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('pantalon rojo','/','es una pantalon rojo',2,1);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('pantalon amarila','/','es una pantalon amarilla',2,2);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('pantalon rosado','/','es una pantalon rosado',2,3);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('pantalon negro','/','es una pantalon negro',2,4);
-
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('blusa rojo','/','es una blusa rojo',3,1);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('blusa amarila','/','es una blusa amarilla',3,2);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('blusa rosado','/','es una blusa rosado',3,3);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('blusa negro','/','es una blusa negro',3,4);
-
- INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('chompa rojo','/','es una chompa rojo',4,1);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('chompa amarila','/','es una chompa amarilla',4,2);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('chompa rosado','/','es una chompa rosado',4,3);
-INSERT into producto (nombre,imagen,descripcion,id_categoria,id_talla) 
-				values('chompa negro','/','es una chompa negro',4,4);
+-- ESTADOS
+INSERT into estado (nombre) values('procesando');
+INSERT into estado (nombre) values('procesado');
+INSERT into estado (nombre) values('enviado');
+INSERT into estado (nombre) values('entregado');
+INSERT into estado (nombre) values('rechazado');
+-- MEtodo_pago
+INSERT into metodo_pago (nombre) values('Efectivo');
+INSERT into metodo_pago (nombre) values('Targeta');
+INSERT into metodo_pago (nombre) values('QR transferencia');
  
 
- INSERT INTO metodo_pago(nombre) values ('tarjeta credito/debito');
- INSERT INTO metodo_pago(nombre) values ('Transferencia QR');
+
 
  INSERT INTO metodo_envio(nombre) values ('Envio gratis');
  INSERT INTO metodo_envio(nombre) values ('Costo fijo');
  INSERT INTO metodo_envio(nombre) values ('Costo fijo');
+
+
+
+
+ 
+
+INSERT INTO usuario (nombre, email, foto, telefono, password, id_rol, id_empresa)
+VALUES
+('Tito Carlos', 'titocarlos080@gmail.com', 'ruta/foto.jpg', '123456789', '$2y$10$rBxTIT8OiLpYoE6k2yML9eWLbmWPnwNuU5d4Ed29mrsC9o52HuVYa', 1, 1);
+-----PRIMER SPRINT--------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ 
+GRANT ALL PRIVILEGES ON DATABASE proyectosi2 TO tito;
+sudo nano /etc/postgresql/12.16/main/postgresql.conf
+
+GRANT ALL PRIVILEGES ON TABLE ciudad TO tito;
+GRANT ALL PRIVILEGES ON TABLE sucursal TO tito;
+GRANT ALL PRIVILEGES ON TABLE producto TO tito;
+GRANT ALL PRIVILEGES ON TABLE rol TO tito;
+GRANT ALL PRIVILEGES ON TABLE usuario TO tito;
+GRANT ALL PRIVILEGES ON TABLE categoria TO tito;
+GRANT ALL PRIVILEGES ON TABLE direccion TO tito;
+GRANT ALL PRIVILEGES ON TABLE talla TO tito;
+GRANT ALL PRIVILEGES ON TABLE pedido TO tito;
+GRANT ALL PRIVILEGES ON TABLE detalle_pedido TO tito;
+GRANT ALL PRIVILEGES ON TABLE pago TO tito;
+GRANT ALL PRIVILEGES ON TABLE metodo_pago TO tito;
+GRANT ALL PRIVILEGES ON TABLE envio TO tito;
+GRANT ALL PRIVILEGES ON TABLE metodo_envio TO tito;
+GRANT ALL PRIVILEGES ON TABLE direccion TO tito;
+
+GRANT ALL PRIVILEGES ON TABLE direccion TO tito;
+GRANT USAGE, SELECT ON SEQUENCE nombre_de_secuencia TO tito;
+
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO tito;

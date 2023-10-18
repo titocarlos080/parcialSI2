@@ -28,12 +28,12 @@ class Usuario extends  Authenticatable
     {
         return $this->hasMany(Direccion::class, 'id_usuario');
     }
-    public function pedidos(): HasMany {
-        return $this->hasMany(Pedido::class, 'id_pedido');
+    public function pedido(): HasMany {
+        return $this->hasMany(Pedido::class, 'id_usuario');
     }  
     public function rol(): BelongsTo {
         return $this->belongsTo(Rol::class, 'id_rol');
     }
 
-
+// 123456789/*-Azure
 }

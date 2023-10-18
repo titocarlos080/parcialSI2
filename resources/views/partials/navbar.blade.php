@@ -8,7 +8,7 @@
 
         <li class="dropdown notification-list">
             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <img src="" alt="user-image" class="rounded-circle">
+                <img src="/assets/images/user_1.jpg" alt="user-image" class="rounded-circle">
                 <span class="pro-user-name ml-1"> <i class="la la-angle-down"></i>
                 
             </span>
@@ -61,12 +61,12 @@
     <div class="logo-box">
         <a href="#" class="logo text-center mt-1">
             <span class="logo-lg">
-                <img src="" alt="img" height="50">
+                <img src=" /assets/images/logo_empresa.png" alt="img" height="50">
                 <!-- <span class="logo-lg-text-light">Xeria</span> -->
             </span>
             <span class="logo-sm">
                 <!-- <span class="logo-sm-text-dark">X</span> -->
-                <img src="#" alt="df" height="20">
+                <img src="/assets/images/logo_empresa.png" alt="df" height="20">
             </span>
         </a>
     </div>
@@ -81,19 +81,7 @@
         </li>
 
     </ul>
-   
-        <form class="app-search "   >
-            <div class="app-search-box"  >
-                <div class="input-group ">
-                    <input type="text" class="form-control " placeholder="Search...">
-                    <div class="input-group-append">
-                        <button class="btn" type="submit">
-                            <i class="fe-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </form>
+    
 
 
     

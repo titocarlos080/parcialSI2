@@ -13,8 +13,10 @@ use function PHPUnit\Framework\isEmpty;
 
 class Show extends Component
 {
+
+    public $carrito;
     public $ciudades;
-    public $cambioCiudad=false;
+    public $cambioCiudad = false;
     public $ciudadSeleccionada = 1;
     public $sucursales;
     public $sucursalSeleccionada = 1;
@@ -58,6 +60,16 @@ class Show extends Component
         $this->switch = false;
         $this->productosconcategoria = '';
     }
+    public  function irAcarrito()
+    {
+        $this->carrito = true;
+    }
+    public  function volverDecarrito()
+    {
+        $this->carrito = false;
+    }
+
+
     public  function abrirProbador()
     {
         $this->emit('abrirCamara');
@@ -67,7 +79,7 @@ class Show extends Component
     {
         $productos_mostrar = Producto::where('nombre', 'LIKE', '%' . $this->buscar . '%')
             ->orWhere('descripcion', 'LIKE', '%' . $this->buscar . '%')
-            ->Where('id_sucursal',$this->sucursalSeleccionada)
+            ->Where('id_sucursal', $this->sucursalSeleccionada)
             ->get();
         return view('livewire.catalogo.show', ['productos_mostrar' => $productos_mostrar]);
     }

@@ -16,7 +16,7 @@
 
                         <h5 class="auth-title">Iniciar Sesión</h5>
 
-                        <form  method="POST">
+                        <form   method="POST">
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="email">Correo Electrónico:</label>
@@ -58,3 +58,4 @@
     </div>
 
 </x-app>
+

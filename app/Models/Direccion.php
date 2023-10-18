@@ -22,5 +22,6 @@ class Direccion extends Model
         return $this->hasOne(Envio::class, 'id_direccion');
     }
 }
+ 
 
  
