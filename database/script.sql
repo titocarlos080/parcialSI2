@@ -21,20 +21,21 @@ CREATE TABLE talla (
 );
 
 CREATE TABLE producto (
-	id serial PRIMARY KEY,
-  	nombre varchar(60) NOT NULL,
-  	imagen varchar(100),
-  	descripcion varchar(200),
-	stock decimal NOT NULL check(precio >= 0),
-	precio real NOT NULL,
-  	id_categoria int NOT NULL,
-  	id_talla int NOT NULL,
-  	id_sucursal int NOT NULL,
-  	FOREIGN KEY (id_categoria) REFERENCES categoria(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  	FOREIGN KEY (id_talla) REFERENCES talla(id) ON DELETE CASCADE ON UPDATE CASCADE,
-  	FOREIGN KEY (id_sucursal) REFERENCES sucursal(id) ON DELETE CASCADE ON UPDATE CASCADE
-
+    id serial PRIMARY KEY,
+    nombre varchar(60) NOT NULL,
+    imagen varchar(100),
+    descripcion varchar(200),
+    stock decimal NOT NULL check(stock >= 0),
+    precio real NOT NULL,
+    id_categoria int NOT NULL,
+    id_talla int NOT NULL,
+    id_sucursal int NOT NULL,
+    FOREIGN KEY (id_categoria) REFERENCES categoria(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (id_talla) REFERENCES talla(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (id_sucursal) REFERENCES sucursal(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 CREATE TABLE rol(
 	id serial NOT NULL PRIMARY KEY,
 	nombre varchar(60) 	
@@ -150,49 +151,43 @@ INSERT into metodo_pago (nombre) values('Efectivo');
 INSERT into metodo_pago (nombre) values('Targeta');
 INSERT into metodo_pago (nombre) values('QR transferencia');
  
-
-
-
- INSERT INTO metodo_envio(nombre) values ('Envio gratis');
- INSERT INTO metodo_envio(nombre) values ('Costo fijo');
- INSERT INTO metodo_envio(nombre) values ('Costo fijo');
-
+ -- METODO_ENVIO
+ INSERT INTO metodo_envio(nombre,costo) values ('Envio gratis',0);
+ INSERT INTO metodo_envio(nombre,costo) values ('Costo fijo',20);
+ INSERT INTO metodo_envio(nombre,costo) values ('Distancia',50);
+ 
 
 
 
  
 
-INSERT INTO usuario (nombre, email, foto, telefono, password, id_rol, id_empresa)
+INSERT INTO usuario (nombre, email, foto, telefono, password,id_rol)
 VALUES
-('Tito Carlos', 'titocarlos080@gmail.com', 'ruta/foto.jpg', '123456789', '$2y$10$rBxTIT8OiLpYoE6k2yML9eWLbmWPnwNuU5d4Ed29mrsC9o52HuVYa', 1, 1);
------PRIMER SPRINT--------------
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+('Tito ADM', 'titoadmin080@gmail.com', '', 123456789, '$2y$10$rBxTIT8OiLpYoE6k2yML9eWLbmWPnwNuU5d4Ed29mrsC9o52HuVYa', 1);
+INSERT INTO usuario (nombre, email, foto, telefono, password,id_rol)
+VALUES
+('Tito Empleado', 'titoempleado080@gmail.com', '', 123456789, '$2y$10$rBxTIT8OiLpYoE6k2yML9eWLbmWPnwNuU5d4Ed29mrsC9o52HuVYa', 1);
+
+
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
  
-GRANT ALL PRIVILEGES ON DATABASE proyectosi2 TO tito;
 sudo nano /etc/postgresql/12.16/main/postgresql.conf
 
-GRANT ALL PRIVILEGES ON TABLE ciudad TO tito;
-GRANT ALL PRIVILEGES ON TABLE sucursal TO tito;
-GRANT ALL PRIVILEGES ON TABLE producto TO tito;
-GRANT ALL PRIVILEGES ON TABLE rol TO tito;
-GRANT ALL PRIVILEGES ON TABLE usuario TO tito;
-GRANT ALL PRIVILEGES ON TABLE categoria TO tito;
-GRANT ALL PRIVILEGES ON TABLE direccion TO tito;
-GRANT ALL PRIVILEGES ON TABLE talla TO tito;
-GRANT ALL PRIVILEGES ON TABLE pedido TO tito;
-GRANT ALL PRIVILEGES ON TABLE detalle_pedido TO tito;
-GRANT ALL PRIVILEGES ON TABLE pago TO tito;
-GRANT ALL PRIVILEGES ON TABLE metodo_pago TO tito;
-GRANT ALL PRIVILEGES ON TABLE envio TO tito;
-GRANT ALL PRIVILEGES ON TABLE metodo_envio TO tito;
-GRANT ALL PRIVILEGES ON TABLE direccion TO tito;
 
-GRANT ALL PRIVILEGES ON TABLE direccion TO tito;
-GRANT USAGE, SELECT ON SEQUENCE nombre_de_secuencia TO tito;
 
+-------------------------------------------------------------
+GRANT ALL PRIVILEGES ON DATABASE proyectosi2 TO tito;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO tito;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO tito;
+
+
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+ 
+------------------------------------------------------------------------------------

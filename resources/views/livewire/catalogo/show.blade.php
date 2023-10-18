@@ -167,12 +167,12 @@
                     <h5 class="card-title text-center text-bold py-1">{{$producto->nombre}}</h5>
                     <div class="card-body">
                         <img class="img-fluid" src="" alt="Card image cap">
-                        <h2 class="text-center">{{$producto->talla->nombre}}</h2>
+                        <h2 class="text-center">Talla: <span>{{$producto->talla->nombre}}</span> </h2>
                         <p class="card-text">{{$producto->descripcion}}</p>
                     </div>
                     <div class="card-footer center text-center">
                         <a href="javascript:void(0);" class="card-link text-custom"><i class=" fa fa-shopping-cart"></i></a>
-                        <a wire:click="abrirProbador" href="javascript:void(0);" class="card-link text-custom"><i class=" fa fa-camera-retro"></i></a>
+                        <a wire:click="abrirProbador" onclick="probador()" href="javascript:void(0);" class="card-link text-custom"><i class=" fa fa-camera-retro"></i></a>
                     </div>
                 </div>
             </div>
@@ -190,13 +190,13 @@
                     <h5 class="card-title text-center text-bold py-1">{{$producto->nombre}}</h5>
                     <div class="card-body">
                         <img class="img-fluid" src="{{$producto->imagen}}" alt="Card image cap">
-                        <h2 class="text-center">{{$producto->talla->nombre}}</h2>
+                        <h2 class="text-center">Talla: <span>{{$producto->talla->nombre}}</h2>
                         <h2 class="text-center">{{$producto->categoria->nombre}}</h2>
                         <p class="card-text">{{$producto->descripcion}}</p>
                     </div>
                     <div class="card-footer center text-center">
                         <button onclick="agregarAlCarrito('{{$producto}}')" class="card-link btn btn-success"><i class=" fa fa-shopping-cart"></i></button>
-                        <a onclick="activateXR()" href="javascript:void(0);" class="card-link text-custom"><i class=" fa fa-camera-retro"></i></a>
+                        <a onclick="probador()" href="javascript:void(0);" class="card-link text-custom"><i class=" fa fa-camera-retro"></i></a>
                     </div>
                 </div>
 
@@ -359,25 +359,25 @@
 
         // }
 
-        // function activar() {
-        //     navigator.mediaDevices.getUserMedia({
-        //             video: true
-        //         })
-        //         .then((stream) => {
-        //             var video = document.createElement('video');
-        //             video.srcObject = stream;
-        //             video.play();
-        //             var contenedorVideo = document.createElement('div');
-        //             contenedorVideo.appendChild(video);
-        //             var con = document.getElementById("aqi").appendChild(contenedorVideo);
-        //             console.log(stream);
+        function probador() {
+            navigator.mediaDevices.getUserMedia({
+                    video: true
+                })
+                .then((stream) => {
+                    var video = document.createElement('video');
+                    video.srcObject = stream;
+                    video.play();
+                    var contenedorVideo = document.createElement('div');
+                    contenedorVideo.appendChild(video);
+                    var con = document.getElementById("aqi").appendChild(contenedorVideo);
+                    console.log(stream);
 
-        //         })
-        //         .catch((error) => {
-        //             console.log('error al abrir camara');
-        //         })
+                 })
+                 .catch((error) => {
+                     console.log('error al abrir camara');
+                 })
 
-        // }
+        }
 
 
 
